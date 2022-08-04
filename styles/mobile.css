@@ -1,0 +1,252 @@
+:root {
+  --primary-color: #5b41ff;
+  --secoundary-color: #8643ff;
+  --text-black: #1b153d;
+  --input-gray: #9095A6;
+  --primary-white: #ffffff;
+  --secoundary-white: #FCFCFF;
+  --tertiary-white: #F8F8FB;
+
+  --xl: 20px
+
+}
+
+* {
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--tertiary-white);
+}
+
+/* estilos generales */
+div {
+  font-size: 18px;
+  color: var(--text-black);
+}
+
+.main-header-container {
+  display: flex;
+  margin: var(--xl);
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.main-header-container .btn-menu, .search-btn{
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.main-header-container .btn-menu > img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.search-container {
+  height: 100%;
+  display: flex;
+  border-radius: 30px;
+  border: 1px solid var(--input-gray);
+  background-color: var(--primary-white);
+
+}
+
+.search-container > input {
+  outline: none;
+  border: none;
+  padding-left: 8px;
+  border-radius: 30px;
+}
+
+.search-btn > img {
+  margin-left: 16px;
+  width: 22px;
+  height: 22px;
+  
+}
+
+.hero {
+  margin: var(--xl);
+  display: flex;
+  height: 20px;
+}
+
+.hero .static-txt {
+  color: var(--text-black);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.hero .dinamic-txts {
+  list-style: none;
+  margin-left: 6px;
+  line-height: 20px;
+  overflow: hidden ;
+}
+
+.dinamic-txts li {
+  list-style: none;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  top: 0;
+  animation: slice 10s steps(2) infinite ;
+}
+
+@keyframes slice {
+  100% {
+    top: -41px;
+  }
+}
+
+.dinamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 20px;
+}
+
+.dinamic-txts li span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  background: var(--tertiary-white);
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid #5b41ff;
+  animation: typing 5s steps(22) infinite;
+}
+
+@keyframes typing {
+  40%, 60% {
+    left: calc(100% + 8px)
+  } 100% {
+    left: 0;
+  }
+}
+
+/* contenedor de las tarjetas */
+.trendly-cards-container {
+  margin: var(--xl);
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+/* tarjetas */
+.trendly-cards-container .card {
+  max-width: 136px;
+  max-height: 213px;
+  background-color: var(--primary-white);
+  border-radius: 16px;
+}
+
+.trendly-cards-container .card img {
+  margin: 8px;
+  width: 120px;
+  height: 101px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.trendly-cards-container .card h3 {
+  font-size: 14px;
+  margin: 4px 10px;
+}
+
+.trendly-cards-container .card p {
+  font-size: 12px;
+  margin: 4px 10px;
+  color: var(--input-gray);
+}
+
+.trendly-cards-container .card h3:nth-child(4) {
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+/* detalles del producto */
+.product-detail-container {
+  width: 100%;
+  height: 423px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 32px 24px;
+  margin-top: 370px;
+  z-index: 1;
+  position: absolute;
+  background-color: var(--primary-white);
+  box-shadow:  -35px -35px 70px var(--input-gray)
+}
+
+.product-title {
+  position: absolute;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--text-black);
+
+  display: inline-block;
+}
+
+.product-price {
+  display: block;
+  text-align: end;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--secoundary-color);
+}
+
+.product-description {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: var(--input-gray);
+}
+
+.add-to-car {
+  margin: 0 auto;
+  width: 260px;
+  height: 70px;
+  border-radius: 14px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--primary-white);
+  border: none;
+  background: linear-gradient(45deg, var(--primary-color),var(--secoundary-color));
+}
+
+/* Como recordatorío la imágen va a ir en el body con la clase de abajo */
+.image-preview {
+  background-image: url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1617135051000');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: sticky;
+}
+
+/* flechita */
+.header-arrow {
+  font-family: 'Red Hat Text', sans-serif;
+  position: absolute;
+  font-size: 40px;
+  top:  3%;
+  left: 3%;
+  font-weight: 500;
+  color: var(--text-black);
+}
+
+
+/* inactive */
+.inactive {
+  display: none;
+}
