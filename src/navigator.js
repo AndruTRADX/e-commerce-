@@ -6,27 +6,21 @@ window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
 headerArrow.addEventListener('click',()=> {
   history.back();
+  body.classList.remove('image-preview');
 })
 
 // función principal
 function navigator() {
-
-
   if(location.hash.startsWith('#product=')){
     productPage()
   } else {
+    window.scrollTo( 0, 1000 );
     trendlyProductsContainer.innerHTML = ''
     homePage()
     getProductsPreview()
   }
+
   window.scrollTo(0,0);
-
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-
-  // if (infiniteScroll) {
-  //   window.addEventListener('scroll', infiniteScroll, {passive:false});
-  // }
 }
 
 // funciones de páginas
@@ -39,7 +33,8 @@ function homePage() {
 
   headerArrow.classList.add('inactive');
   productDetailContainer.classList.add('inactive');
-  body.classList.remove('image-preview')
+  body.classList.remove('image-preview');
+  body.style.background = '#F8F8FB'
 }
 
 function productPage() {
@@ -51,7 +46,7 @@ function productPage() {
 
   headerArrow.classList.remove('inactive');
   productDetailContainer.classList.remove('inactive');
-  body.classList.add('image-preview')
+  body.classList.add('image-preview');
 }
 
 

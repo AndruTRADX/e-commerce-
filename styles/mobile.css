@@ -24,6 +24,10 @@ html {
 
 body {
   background-color: var(--tertiary-white);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* estilos generales */
@@ -137,10 +141,31 @@ div {
 
 /* contenedor de las tarjetas */
 .trendly-cards-container {
-  margin: var(--xl);
+  padding: var(--xl);
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 10px;
+  place-content: center;
+  place-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media  screen and (min-width:460px) {
+  .trendly-cards-container {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media  screen and (min-width:630px) {
+  .trendly-cards-container {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media  screen and (min-width:830px) {
+  .trendly-cards-container {
+    grid-template-columns: repeat(5,1fr);
+  }
 }
 
 /* tarjetas */
@@ -150,6 +175,7 @@ div {
   min-height: 200px;
   background-color: var(--primary-white);
   border-radius: 16px;
+  margin-bottom: 10px;
 }
 
 .trendly-cards-container .card img {
@@ -178,6 +204,9 @@ div {
 
 /* detalles del producto */
 .product-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 423px;
   border-top-left-radius: 16px;
@@ -191,7 +220,6 @@ div {
 }
 
 .product-title {
-  position: absolute;
   font-size: 2.2rem;
   font-weight: bold;
   color: var(--text-black);
@@ -201,9 +229,10 @@ div {
 
 .product-price {
   display: block;
-  text-align: end;
+  text-align: start;
   font-size: 2.2rem;
   font-weight: bold;
+  margin-top: 6px;
   margin-bottom: 12px;
   color: var(--secoundary-color);
 }
@@ -216,7 +245,6 @@ div {
 }
 
 .add-to-car {
-  margin: 0 auto;
   width: 260px;
   height: 70px;
   border-radius: 14px;
@@ -230,9 +258,6 @@ div {
 /* Como recordatorío la imágen va a ir en el body con la clase de abajo */
 .image-preview {
   background-image: url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1617135051000');
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: sticky;
 }
 
 /* flechita */
@@ -243,7 +268,8 @@ div {
   top:  3%;
   left: 3%;
   font-weight: 500;
-  color: var(--text-black);
+  color: var(--primary-white);
+  cursor: pointer;
 }
 
 /* inactive */

@@ -69,6 +69,9 @@ function createProduct(productsJson, container, {lazyLoad = false,clean = false}
     card.appendChild(cardProductDescription);
     card.appendChild(cardProductPrice);
     container.appendChild(card);
+
+    // añadir función de acceso al elemento
+    card.addEventListener('click', ()=> getProductById(product.id));
   });
 }
 
@@ -104,4 +107,14 @@ async function getProductsPreview(){
   }
 }
 
+// obtener producto en especifico
+async function getProductById(id) {
+  const {data: product} = await api('/' + id);
+  location.hash = `#product=${id}`
 
+  productTitle.textContent = product.title;
+  productPrice.textContent = '$' + product.price;
+  productDescripttion.textContent = product.description;
+  body.style.background = `linear-gradient(180deg, rgba(0, 0, 0, 0.35) 15%, rgba(0, 0, 0, 0) 29.17%), url(${product.images[0]}) top no-repeat`;
+
+}
